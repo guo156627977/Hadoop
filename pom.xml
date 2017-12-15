@@ -12,6 +12,7 @@
         <module>Avro_Demo</module>
         <module>Zookeeper_Demo</module>
         <module>Protobuf_Demo</module>
+        <module>StormDemo</module>
     </modules>
 
     <name>hadoop</name>
