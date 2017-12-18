@@ -13,6 +13,11 @@
         <module>Zookeeper_Demo</module>
         <module>Protobuf_Demo</module>
         <module>StormDemo</module>
+        <module>HdfsDemo</module>
+        <module>HbaseDemo</module>
+        <module>KafkaDemo</module>
+        <module>HiveDemo</module>
+        <module>FlumeDemo</module>
     </modules>
 
     <name>hadoop</name>
