@@ -97,6 +97,10 @@ public class CallLogSpout implements IRichSpout {
 
     }
 
+    /**
+     * 定义输出字段的名称，对应nextTuple对应的输出元组，告诉程序输出的是什么
+     * @param declarer
+     */
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
         declarer.declare(new Fields("from", "to", "duration"));
