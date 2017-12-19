@@ -1,7 +1,7 @@
 package com.gzq.storm;
 
 import org.apache.storm.Config;
-import org.apache.storm.LocalCluster;
+import org.apache.storm.StormSubmitter;
 import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.tuple.Fields;
 
@@ -11,12 +11,11 @@ import org.apache.storm.tuple.Fields;
  * @author guozhiqiang
  * @created 2017-12-18 16:19.
  */
-public class App {
+public class LogAnalyserStorm {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Config config = new Config();
-        config.setDebug(true);
+
 
         TopologyBuilder builder = new TopologyBuilder();
 
@@ -28,16 +27,16 @@ public class App {
         builder.setBolt("call-log-counter-bolt", new CallLogCounterBolt())
                 .fieldsGrouping("call-log-creator-bolt", new Fields("call"));
 
+        Config config = new Config();
+        config.setDebug(true);
+        //LocalCluster cluster = new LocalCluster();
+        //cluster.submitTopology("LogAnalyserStorm", config, builder.createTopology());
+        //Thread.sleep(10000);
 
-        LocalCluster cluster = new LocalCluster();
-        cluster.submitTopology("LogAnalyserStorm", config, builder.createTopology());
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        //cluster.shutdown();
 
-        cluster.shutdown();
+
+        StormSubmitter.submitTopology("LogAnalyserStorm", config, builder.createTopology());
 
 
     }
