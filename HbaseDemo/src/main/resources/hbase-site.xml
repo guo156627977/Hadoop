@@ -28,11 +28,11 @@
     <!--将 hbase.rootdir 路径从本地文件系统调整到 HDFS 环境中的地址，地址格式为 hdfs:////URI-->
     <property>
         <name>hbase.rootdir</name>
-        <value>hdfs://ceb-sec-test162:9000/hbase</value>
+        <value>hdfs://ns1/hbase</value>
     </property>
 <property>
         <name>hbase.zookeeper.quorum</name>
-        <value>ceb-sec-test160:2181,ceb-sec-test161:2181,ceb-sec-test162:2181</value>
+        <value>ceb94:2181,ceb95:2181,ceb96:2181</value>
     </property>
 
 </configuration>
